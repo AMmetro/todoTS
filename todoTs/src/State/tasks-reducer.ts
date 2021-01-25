@@ -1,4 +1,4 @@
-import {FilterValuesType, TasksStateType, TodolistType} from '../App';
+import {TasksStateType} from '../App';
 import {v1} from 'uuid';
 import {AddTodolistActionType, RemoveTodolistActionType} from './todolists-reducer';
 
@@ -50,6 +50,7 @@ export const tasksReducer = (state=initialState, action: ActionsType): TasksStat
             return stateCopy;
         }
         case 'CHANGE-TASK-STATUS': {
+
             const stateCopy = {...state};
 
             let tasks = stateCopy[action.todolistId];
