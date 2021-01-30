@@ -1,11 +1,19 @@
 import React, {ChangeEvent} from 'react';
-import {FilterValuesType} from './App';
 import {EditableSpan} from './EditableSpan';
-import {Button, Checkbox, IconButton} from '@material-ui/core';
+import {Checkbox, IconButton} from '@material-ui/core';
 import {Delete} from '@material-ui/icons';
 
+export type PropsType = {
+    checked: boolean
+    changeTaskStatus: (newIsDoneValue:boolean)=>void
+    title: string
+    onTitleChangeHandler: (newValue:string)=>void
+    removeTask: ()=>void
 
-export const Task =React.memo( (props:any)=> {
+}
+
+
+export const Task =React.memo( (props:PropsType)=> {
 
     const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) => {
          props.changeTaskStatus(e.currentTarget.checked);
